@@ -1,0 +1,17 @@
+.vignette{
+	width: 80px;
+	height: 80px;
+}
+
+td{
+	vertical-align: bottom;
+}
+
+#page{
+	width: 80%;
+	margin: auto;
+}
+
+nav{
+	padding: 10px;
+}

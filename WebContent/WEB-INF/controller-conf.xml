@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<default-action>
+		<class>org.antislashn.bovoyages.web.controllers.ViewDestinationsController</class>
+	</default-action>
+	<action>
+		<name>home</name>
+		<class>org.antislashn.bovoyages.web.controllers.ViewDestinationsController</class>
+	</action>
+</configuration>

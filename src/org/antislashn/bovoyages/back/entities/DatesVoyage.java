@@ -24,13 +24,15 @@ public class DatesVoyage implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pk_date_voyage")
 	private long id;
-	@Column(name = "date_aller")
+	@Column(name = "date_depart")
 	private Date dateAller;
 	@Column(name = "date_retour")
 	private Date dateRetour;
 	private double prixHT;
 	@Column(name = "nb_places")
-	private int nbPLaces;
+	private int nbPlaces;
+	@Column(name = "deleted")
+	private boolean raye;
 	
 	
 	public long getId() {
@@ -57,11 +59,17 @@ public class DatesVoyage implements Serializable{
 	public void setPrixHT(double prixHT) {
 		this.prixHT = prixHT;
 	}
-	public int getNbPLaces() {
-		return nbPLaces;
+	public int getNbPlaces() {
+		return nbPlaces;
 	}
-	public void setNbPLaces(int nbPLaces) {
-		this.nbPLaces = nbPLaces;
+	public void setNbPlaces(int nbPLaces) {
+		this.nbPlaces = nbPLaces;
+	}
+	public boolean isRaye() {
+		return raye;
+	}
+	public void setRaye(boolean raye) {
+		this.raye = raye;
 	}
 	
 	

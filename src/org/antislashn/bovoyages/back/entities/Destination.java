@@ -31,15 +31,17 @@ public class Destination implements Serializable {
 	private long id;
 	private String region;
 	private String description;
+	@Column(name = "deleted")
+	private boolean raye;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="images",joinColumns = @JoinColumn(name="fk_destination"))
 	@Column(name="image")
 	private List<String> images = new ArrayList<>();
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "fk_destination")
-	public List<DatesVoyage> datesVoyages = new ArrayList<>();
+	private List<DatesVoyage> datesVoyages = new ArrayList<>();
 	
 	public void addImageFileName(String fileName) {
 		images.add(fileName);

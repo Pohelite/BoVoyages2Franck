@@ -1,5 +1,6 @@
 package org.antislashn.bovoyages.back.web.servlets;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.persistence.EntityManagerFactory;
@@ -29,6 +30,9 @@ public class AppicationListener implements ServletContextListener {
 		DestinationsService service = new DestinationsService(emf);
 		ctx.setAttribute(Constantes.DESTINATIONS_SERVICE, service);
 		LOG.info(">>> Initialisation de ServletContext : ajout de DestinationsService");
+		List<String> regions = service.getAllRegions();
+		ctx.setAttribute(Constantes.REGIONS, regions);
+		LOG.info(">>> Initialisation de ServletContext : ajout des régions");
 	}
 
     public void contextDestroyed(ServletContextEvent sce)  {

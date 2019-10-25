@@ -7,4 +7,16 @@
 		<name>home</name>
 		<class>org.antislashn.bovoyages.web.controllers.ViewDestinationsController</class>
 	</action>
+	<action>
+		<name>delDestination</name>
+		<class>org.antislashn.bovoyages.web.controllers.DeleteDestinationController</class>
+	</action>
+	<action>
+		<name>destDetails</name>
+		<class>org.antislashn.bovoyages.web.controllers.ViewDetailsController</class>
+	</action>
+	<action>
+		<name>test</name>
+		<class>org.antislashn.bovoyages.web.controllers.TestController</class>
+	</action>
 </configuration>

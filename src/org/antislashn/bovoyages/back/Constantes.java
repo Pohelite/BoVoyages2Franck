@@ -7,4 +7,5 @@ public interface Constantes {
 	String DESTINATIONS_SERVICE = "DestinationsService";
 	String TAG_LOG = "bovoyages-back-office";
 	String UNIT_NAME = "bovoyages";
+	String REGIONS = "regions";
 }

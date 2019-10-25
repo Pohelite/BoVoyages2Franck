@@ -7,7 +7,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<non-jta-data-source>java:comp/env/jdbc/bovoyages</non-jta-data-source>
 		<properties>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+<!-- 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> -->
 			<property name="javax.persistence.schema-generation.database.action" value="none" />
 			<property name="hibernate.show_sql" value="true"/>
 		</properties>

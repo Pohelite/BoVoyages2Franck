@@ -46,7 +46,8 @@ public abstract class AbstractDAO<E,ID> {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		E entity = em.find(entityClass, id);
-		em.remove(entity);
+		if(entity != null)
+			em.remove(entity);
 		em.getTransaction().commit();
 		em.close();	
 	}

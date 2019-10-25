@@ -7,8 +7,8 @@
 	<tr>
 		<td><img src="images/${destination.images[0] }" class="vignette"/><td>
 		<td>${destination.region }</td>
-		<td><a href="FrontController?cde=delView&id=${destination.id }" class="w3-btn w3-red">Supprimer</a></td>
-		<td><a href="FrontController?cde=updateView&id=${destination.id }" class="w3-btn w3-blue">Modifier</a></td>
+		<td><a href="FrontController?cde=delDestination&id=${destination.id }" class="w3-btn w3-red">Supprimer</a></td>
+		<td><a href="FrontController?cde=destDetails&id=${destination.id }" class="w3-btn w3-blue">Modifier</a></td>
 	</tr>
 </c:forEach>
 </table>

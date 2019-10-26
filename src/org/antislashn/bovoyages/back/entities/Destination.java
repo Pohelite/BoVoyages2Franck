@@ -19,6 +19,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "destinations")
@@ -29,7 +32,9 @@ public class Destination implements Serializable {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="pk_destination")
 	private long id;
+	@NotEmpty
 	private String region;
+	@NotEmpty @Size(min = 50, message="doit comporter au moins {min} caractères")
 	private String description;
 	@Column(name = "deleted")
 	private boolean raye;
@@ -41,6 +46,7 @@ public class Destination implements Serializable {
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "fk_destination")
+	@Valid
 	private List<DatesVoyage> datesVoyages = new ArrayList<>();
 	
 	public void addImageFileName(String fileName) {

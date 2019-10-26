@@ -57,4 +57,13 @@ public class DestinationsService {
 	public List<DatesVoyage> getDatesVoyagesByIdDestination(String id) {
 		return getDatesVoyagesByIdDestination(Long.parseLong(id));
 	}
+
+	public void save(Destination destination) {
+		if(destination.getId()==0) {
+			destinationDAO.create(destination);
+		}else {
+			destinationDAO.update(destination);
+		}
+		
+	}
 }

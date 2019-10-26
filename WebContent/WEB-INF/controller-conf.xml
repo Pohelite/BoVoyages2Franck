@@ -16,6 +16,10 @@
 		<class>org.antislashn.bovoyages.web.controllers.ViewDetailsController</class>
 	</action>
 	<action>
+		<name>saveDest</name>
+		<class>org.antislashn.bovoyages.web.controllers.SaveDestinationController</class>
+	</action>
+	<action>
 		<name>test</name>
 		<class>org.antislashn.bovoyages.web.controllers.TestController</class>
 	</action>

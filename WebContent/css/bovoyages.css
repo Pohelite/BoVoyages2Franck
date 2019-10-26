@@ -29,3 +29,7 @@ nav{
 	visibility: visible;
 	color: red;
 }
+
+.erreurs{
+	color:red;
+}

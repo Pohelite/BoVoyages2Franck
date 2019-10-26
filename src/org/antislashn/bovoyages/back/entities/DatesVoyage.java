@@ -11,6 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.antislashn.bovoyages.back.DatesVoyageValidation;
 
 /**
  * 
@@ -20,16 +26,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name="dates_voyages")
 @Access(AccessType.FIELD)
+@DatesVoyageValidation
 public class DatesVoyage implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pk_date_voyage")
 	private long id;
 	@Column(name = "date_depart")
+	@Future @NotNull
 	private Date dateAller;
 	@Column(name = "date_retour")
+	@Future @NotNull
 	private Date dateRetour;
+	@DecimalMin("100.0")
 	private double prixHT;
 	@Column(name = "nb_places")
+	@Min(1)
 	private int nbPlaces;
 	@Column(name = "deleted")
 	private boolean raye;
@@ -62,8 +73,8 @@ public class DatesVoyage implements Serializable{
 	public int getNbPlaces() {
 		return nbPlaces;
 	}
-	public void setNbPlaces(int nbPLaces) {
-		this.nbPlaces = nbPLaces;
+	public void setNbPlaces(int nbPlaces) {
+		this.nbPlaces = nbPlaces;
 	}
 	public boolean isRaye() {
 		return raye;

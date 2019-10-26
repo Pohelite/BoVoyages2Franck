@@ -4,4 +4,6 @@ Pojet exemple de gestion des destinations et dates de voyages liées à une dest
 * Tomcat
 * JPA Hibernate
 * Servlet/JSP
+* Bean Validation
+* JavaScript - exemple de clone d'éléments
 * pattern FrontController

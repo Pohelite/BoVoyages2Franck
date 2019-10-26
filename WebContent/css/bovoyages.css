@@ -20,3 +20,12 @@ td{
 nav{
 	padding: 10px;
 }
+
+.invisible{
+	visibility: hidden;
+}
+
+.visible{
+	visibility: visible;
+	color: red;
+}

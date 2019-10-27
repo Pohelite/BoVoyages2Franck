@@ -49,7 +49,7 @@ function checkInput(event){
 }
 
 document.addEventListener("DOMContentLoaded",function(){
-	let inputs = documents.getElementsByTagName('input');
-	initInputEvents(inputs);
-	document.getElementById("description",checkDescription);
+//	let inputs = document.getElementsByTagName('input');
+//	initInputEvents(inputs);
+//	document.getElementById("description",checkDescription);
 });

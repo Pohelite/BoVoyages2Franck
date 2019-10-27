@@ -17,7 +17,7 @@
 <nav>
 <a href="FrontController?cde=home"  class="w3-btn w3-red">Toutes les destinations</a>
 <a href="FrontController?cde=destDetails&id=0"  class="w3-btn w3-red">Ajouter une destination</a>
-<a href="FrontController?cde=test"  class="w3-btn w3-red">Test</a>
+<!-- <a href="FrontController?cde=test"  class="w3-btn w3-red">Test</a> -->
 <!-- <select id="region" name="region"> -->
 <!-- <option selected="selected">-- choisir une région --</option> -->
 <%-- <c:forEach items="${regions}" var="region"> --%>

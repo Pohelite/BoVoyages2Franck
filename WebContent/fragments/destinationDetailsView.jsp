@@ -6,7 +6,7 @@
 	<div class="w3-container w3-light-blue">
 	  <h2>${title }</h2>
 	</div>
-<form action="FrontController" class="w3-container" method="post">
+<form action="FrontController" class="w3-container" method="post" accept-charset="UTF-8">
 	<input type="hidden" name="cde" value="${cde }"/>
 	<input type="hidden" name="id" value="${destination.id }"/>
 	
@@ -21,7 +21,8 @@
 	<span id="error_description"></span>
 	
 	<div class="w3-container">
-		<h4>Images <button type="button" class="w3-btn w3-circle w3-red">+</button></h4>
+		<h4>Images <button type="button" class="w3-btn w3-circle w3-red" 
+							onclick="document.getElementById('popup').style.display='block'">+</button></h4>
 		<c:forEach items="${destination.images }" var="image">
 			<div class="w3-container w3-cell">
 				<img alt="${image }" src="images/${image }"/>
@@ -35,24 +36,24 @@
 		<span id="nbDates" style="display: none" data-nb-dates="${fn:length(datesVoyages) }">${fn:length(datesVoyages) }</span>
 		<c:forEach items="${datesVoyages}" var="dv" varStatus="st">
 		<div class="w3-section w3-border">
-			<input type="hidden" name="iddv_"${st.index } value="${dv.id }" />
+			<input type="hidden" name="iddv_${st.count }" value="${dv.id }" />
 			<div class="w3-container w3-margin-bottom w3-margin-top">
 				<label  class="w3-text-blue">Date de départ : </label>
-				jour <input name="depart_jour_${st.index }" value="${dv.dateAller.date }" size="4" class="jour"/>
-				mois <input name="depart_mois_${st.index }" value="${dv.dateAller.month + 1}" size="4" class="mois"/>
-				année <input name="depart_an_${st.index }" value="${dv.dateAller.year + 1900}" size="4" class="an"/><span id="error_depart_${st.index }"></span>
+				jour <input name="depart_jour_${st.count }" value="${dv.dateAller.date }" size="4" class="jour"/>
+				mois <input name="depart_mois_${st.count }" value="${dv.dateAller.month + 1}" size="4" class="mois"/>
+				année <input name="depart_an_${st.count }" value="${dv.dateAller.year + 1900}" size="4" class="an"/><span id="error_depart_${st.index }"></span>
 			</div>
 			<div class="w3-container w3-margin-bottom">
 				<label  class="w3-text-blue">Date de retour : </label>
-				jour <input name="retour_jour_${st.index }" value="${dv.dateRetour.date }" size="4" class="jour"/>
-				mois <input name="retour_mois_${st.index }" value="${dv.dateRetour.month + 1}" size="4" class="mois"/>
-				année <input name="retour_an_${st.index }" value="${dv.dateRetour.year + 1900}" size="4" class="an"/><span id="error_retour_${st.index }"></span>
+				jour <input name="retour_jour_${st.count }" value="${dv.dateRetour.date }" size="4" class="jour"/>
+				mois <input name="retour_mois_${st.count }" value="${dv.dateRetour.month + 1}" size="4" class="mois"/>
+				année <input name="retour_an_${st.count }" value="${dv.dateRetour.year + 1900}" size="4" class="an"/><span id="error_retour_${st.index }"></span>
 			</div>
 			<div class="w3-container w3-margin-bottom">
 				<label  class="w3-text-blue">Tarif : </label>
-				<input name="prix_${st.index }" value="${dv.prixHT }" size="8"/>
+				<input name="prix_${st.count }" value="${dv.prixHT }" size="8"/>
 				<label  class="w3-text-blue">Nb places : </label>
-				<input name="places_${st.index }" value="${dv.nbPlaces }" size="8"/><span id="error_prixouplaces_${st.index }"></span>
+				<input name="places_${st.count }" value="${dv.nbPlaces }" size="8"/><span id="error_prixouplaces_${st.index }"></span>
 			</div>
 		</div>
 		</c:forEach>
@@ -66,6 +67,19 @@
 	</c:if> 	
 	<button class="w3-btn w3-light-blue perso-margin">Enregister</button>
 </form>
+<div id="popup" class="w3-modal">
+	<div class="w3-modal-content">
+		<div class="w3-container">
+			<h3>Choisissez les images à transférer</h3>
+			<input type="file" id="images" name="images" multiple="multiple" 
+				class="w3-button w3-margin-bottom" /><br>
+			<input type="button" onclick="uploadFiles('images')" value="Transférer" 
+				class="w3-button w3-margin-bottom"/>
+			<span onclick="document.getElementById('popup').style.display='none'"
+     				class="w3-button w3-display-topright">&times;</span>
+		</div>
+	</div>
+</div>
 </div>
 	<div id="toClone" style="display: none">
 		<div class="w3-section w3-border">

@@ -81,7 +81,7 @@ public class SaveDestinationController implements Controller {
 				Date depart = new Date(Integer.parseInt(anDepartStr)-1900,Integer.parseInt(moisDepartStr)-1,Integer.parseInt(jourDepartStr));
 				Date retour = new Date(Integer.parseInt(anRetourStr)-1900,Integer.parseInt(moisRetourStr)-1,Integer.parseInt(jourRetourStr));
 				int nbPlaces = Integer.parseInt(request.getParameter("places_"+num));
-				double prixHT = Double.parseDouble(request.getParameter("prix_").replace(",", "."));
+				double prixHT = Double.parseDouble(request.getParameter("prix_"+num).replace(",", "."));
 				long id = Long.parseLong(request.getParameter("iddv_"+num));
 				DatesVoyage dv = new DatesVoyage();
 				dv.setDateAller(depart);
@@ -93,6 +93,8 @@ public class SaveDestinationController implements Controller {
 			}catch(NumberFormatException e) {
 				LOG.log(Level.SEVERE, "Erreur de format", e);
 				erreurs.add("Erreur de format de nombre : vérifiez les dates, prix et nombre de places");
+			}catch (Exception e) {
+				LOG.log(Level.SEVERE, "Erreur de sur itération "+num, e);
 			}
 			num++;
 		}
